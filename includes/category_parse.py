@@ -13,7 +13,7 @@ def category_parse(link_formated, head, upper_dir):
         products = response.html.find('a.it.good-item-name')
         for product in products:
             product_link = product.attrs['href']
-            product_link = f'https://videoglaz.ru{product_link}'
+            product_link = f'{site_link}{product_link}'
             save_product(product_link, upper_dir)
     else:
         pass
