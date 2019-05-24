@@ -3,6 +3,7 @@ from requests_html import HTML, HTMLSession
 import os
 import csv
 
+from includes.chekpage import chek_for_products
 from includes.rename import rename_file
 from includes.category_parse import category_parse
 from includes.prod_page_parse import save_product, products_page_parse
@@ -11,6 +12,7 @@ from includes.prod_page_parse import save_product, products_page_parse
 #Открываю html сессию с сайтом
 session = HTMLSession()
 site_link = 'https://videoglaz.ru'
+
 cat_link_basecat = '/catalog.php'
 formated_link = f'{site_link}{cat_link_basecat}'
 response = session.get(formated_link)
@@ -37,18 +39,17 @@ for category in categoryes:
     csv_writer.writerow([cat_head, cat_link_formated])
     csv_export.close()
 
-    rename_file(cat_head, True)
+    output_name = rename_file(cat_head, True)
 
-    print(output_name)
-    # try:
-    #     os.makedirs(output_name)
-    # except FileExistsError:
-    #     pass
+    try:
+        os.makedirs(output_name)
+    except FileExistsError:
+        pass
 
-    # sub_list_file = f'{output_name}/{output_name}.csv'
-    # csv_export = open(sub_list_file, 'w')
-    # sub_csv_writer = csv.writer(csv_export)
-    # sub_csv_writer.writerow(['Категория', 'Ссылка'])
+    sub_list_file = f'{output_name}/{output_name}.csv'
+    csv_export = open(sub_list_file, 'w')
+    sub_csv_writer = csv.writer(csv_export)
+    sub_csv_writer.writerow(['Категория', 'Ссылка'])
 
-    # parse_sub_category(cat_link_formated, cat_head, output_name)
+    category_parse(cat_link_formated, cat_head, output_name)
 print('All done!')

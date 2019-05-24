@@ -1,6 +1,9 @@
 from requests_html import HTML, HTMLSession
 import csv
 
+session = HTMLSession()
+site_link = 'https://videoglaz.ru'
+
 #Сохранение товара
 def save_product(page_link, dir_name):
     response = session.get(page_link)
@@ -18,7 +21,7 @@ def save_product(page_link, dir_name):
         formated_foto_link = f'{site_link}{foto_link}'
         foto_list.append(formated_foto_link)
 
-    rename_file(product_name, False)
+    output_name = rename_file(product_name, False)
 
     csv_file_name = output_name
     product_description_csv = f'{dir_name}/{csv_file_name}.csv'

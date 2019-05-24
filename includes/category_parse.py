@@ -3,12 +3,18 @@ from requests_html import HTML, HTMLSession
 import os
 import csv
 
+from includes.chekpage import chek_for_products
+from includes.rename import rename_file
+
+session = HTMLSession()
+site_link = 'https://videoglaz.ru'
+
 #Функция обработки ссылок в категориях
 def category_parse(link_formated, head, upper_dir):
 
-    chek_for_products(link_formated)
+    is_product_page = chek_for_products(link_formated)
 
-    if product_page == True:
+    if is_product_page == True:
         response = session.get(link_formated)
         products = response.html.find('a.it.good-item-name')
         for product in products:
@@ -35,7 +41,7 @@ def category_parse(link_formated, head, upper_dir):
         csv_export.close()
 
         #Создаю папку для подкатегории
-        rename_file(cat_head, True)
+        output_name = rename_file(cat_head, True)
         dir_path = f'{upper_dir}/{output_name}'
 
         try:
