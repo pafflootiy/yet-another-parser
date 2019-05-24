@@ -1,0 +1,14 @@
+Logic:
+
+get page
+    chek for products present
+        if no products
+            parse all categories links
+                create dir for each of category
+                write to csv file category name and links
+                go inside the category an repeat all over
+        if page has products
+            chek number of pages
+            open every product page
+                get product name, fotos, description
+                save to csv

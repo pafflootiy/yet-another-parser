@@ -1,10 +1,6 @@
 from requests_html import HTML, HTMLSession
 import csv
 
-session = HTMLSession()
-site_link = 'https://videoglaz.ru'
-response = session.get(formated_link)
-
 #Сохранение товара
 def save_product(page_link, dir_name):
     response = session.get(page_link)
@@ -30,7 +26,7 @@ def save_product(page_link, dir_name):
     csv_writer = csv.writer(csv_export)
     csv_writer.writerow(['Наименование', 'Цена', 'Описание', 'фото-1', 'фото-2', 'фото-3', 'фото-4'])
 
-    #Если у товара 4 фото, то записываю их, если одно, то одно
+    #Если у товара 4 фото, то записываю их, если одно, то одно, если ни одного, то не пишу ссылки на фото
     try:
         csv_writer.writerow([product_name, product_price, product_descr_formated, foto_list[0], foto_list[1], foto_list[2], foto_list[3]])
     except IndexError:
