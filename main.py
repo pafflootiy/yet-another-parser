@@ -3,9 +3,9 @@ from requests_html import HTML, HTMLSession
 import os
 import csv
 
-from rename import rename_file
-from category_parse import category_parse
-from prod_page_parse import save_product, products_page_parse
+from includes.rename import rename_file
+from includes.category_parse import category_parse
+from includes.prod_page_parse import save_product, products_page_parse
 
 
 #Открываю html сессию с сайтом
@@ -37,20 +37,18 @@ for category in categoryes:
     csv_writer.writerow([cat_head, cat_link_formated])
     csv_export.close()
 
-    dir_name_trslt = translit(cat_head, 'ru', reversed=True) #Транслитерируем имя категории
-    dir_name = dir_name_trslt.replace(',', '') #Убираю запятые
-    dir_name = dir_name.replace(' ', '_') #Заменяю пробелы на н.подчёркивание
-    dir_name = dir_name.replace('/', '_')
-    dir_name = dir_name.replace('"', '')
-    try:
-        os.makedirs(dir_name)
-    except FileExistsError:
-        pass
+    rename_file(cat_head, True)
 
-    sub_list_file = f'{dir_name}/{dir_name}.csv'
-    csv_export = open(sub_list_file, 'w')
-    sub_csv_writer = csv.writer(csv_export)
-    sub_csv_writer.writerow(['Категория', 'Ссылка'])
+    print(output_name)
+    # try:
+    #     os.makedirs(output_name)
+    # except FileExistsError:
+    #     pass
 
-    parse_sub_category(cat_link_formated, cat_head, dir_name)
+    # sub_list_file = f'{output_name}/{output_name}.csv'
+    # csv_export = open(sub_list_file, 'w')
+    # sub_csv_writer = csv.writer(csv_export)
+    # sub_csv_writer.writerow(['Категория', 'Ссылка'])
+
+    # parse_sub_category(cat_link_formated, cat_head, output_name)
 print('All done!')

@@ -33,7 +33,7 @@ def save_product(page_link, dir_name):
         try:
             csv_writer.writerow([product_name, product_price, product_descr_formated, foto_list[0]])
         except IndexError:
-            csv_writer.writerow([product_name, product_price, product_descr_formated)
+            csv_writer.writerow([product_name, product_price, product_descr_formated])
             pass
         pass
     csv_export.close()

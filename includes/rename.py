@@ -2,6 +2,7 @@ from transliterate import translit, get_available_language_codes
 
 #Заменяю все ненужные символы в имени файла
 def rename_file(input_name, trnslt):
+
     global output_name
 
     if trnslt == True:

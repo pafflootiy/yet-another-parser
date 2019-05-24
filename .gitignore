@@ -27,4 +27,6 @@
 # Ignore all local history of files
 .history
 
+
+*.csv
 # End of https://www.gitignore.io/api/git,visualstudiocode
