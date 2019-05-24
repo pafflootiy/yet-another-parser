@@ -1,5 +1,6 @@
 from requests_html import HTML, HTMLSession
 import csv
+from _includes.rename import rename_file
 
 session = HTMLSession()
 site_link = 'https://videoglaz.ru'

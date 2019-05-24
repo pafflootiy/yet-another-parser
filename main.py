@@ -3,10 +3,10 @@ from requests_html import HTML, HTMLSession
 import os
 import csv
 
-from includes.chekpage import chek_for_products
-from includes.rename import rename_file
-from includes.category_parse import category_parse
-from includes.prod_page_parse import save_product, products_page_parse
+from _includes.chekpage import chek_for_products
+from _includes.rename import rename_file
+from _includes.category_parse import category_parse
+from _includes.prod_page_parse import save_product, products_page_parse
 
 
 #Открываю html сессию с сайтом
