@@ -27,7 +27,7 @@
 # Ignore all local history of files
 .history
 *.pyc
-_includes/__pycache__
+_includes/__pycache__/
 
 
 *.csv
