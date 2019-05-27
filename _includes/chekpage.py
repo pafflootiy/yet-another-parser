@@ -3,7 +3,7 @@ from requests_html import HTML, HTMLSession
 session = HTMLSession()
 
 #проверка на наличие подкаталогов
-def chek_for_products (page_link):
+def chek_for_products(page_link):
     response = session.get(page_link)
     is_product_page = True
     try:
