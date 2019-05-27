@@ -26,6 +26,8 @@
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
+*.pyc
+_includes/__pycache__
 
 
 *.csv
