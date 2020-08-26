@@ -50,7 +50,7 @@ def category_parse(link_formated, head, upper_dir):
         except FileExistsError:
             pass
 
-        # #Создаю 
+        #Создаю 
         # list_file = f'{dir_path}/{dir_name}.csv'
         # csv_export = open(list_file, 'w')
         # csv_writer = csv.writer(csv_export)

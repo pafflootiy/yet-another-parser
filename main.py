@@ -14,7 +14,7 @@ session = HTMLSession()
 site_link = 'https://videoglaz.ru'
 
 cat_link_basecat = '/catalog.php'
-formated_link = f'{site_link}{cat_link_basecat}'
+formated_link = f'{site_link}/{cat_link_basecat}'
 response = session.get(formated_link)
 
 #Создаю csv файл для записи категорий и ссылок на них
@@ -33,6 +33,7 @@ for category in categoryes:
     cat_head = category.find(first=True).text
     cat_link = category.find('a', first=True).attrs['href']
     cat_link_formated = f'{site_link}{cat_link}'
+    print('Добавил категорию: "', cat_head, '"')
 
     #Записываю категории и ссылок на них в csv файл
     csv_export = open(cat_list_file, 'a')
