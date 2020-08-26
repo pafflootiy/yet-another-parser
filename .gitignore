@@ -15,9 +15,7 @@
 *_BASE_*.txt
 *_LOCAL_*.txt
 *_REMOTE_*.txt
-*.gitignore
-*.gitattributes
-test.py
+
 
 ### VisualStudioCode ###
 .vscode/*
@@ -34,4 +32,8 @@ _includes/__pycache__/
 
 
 *.csv
+.gitignore
+.gitattributes
+test.py
+
 # End of https://www.gitignore.io/api/git,visualstudiocode
