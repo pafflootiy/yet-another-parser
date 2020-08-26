@@ -32,8 +32,8 @@ _includes/__pycache__/
 
 
 *.csv
-.gitignore
-.gitattributes
-test.py
+/.gitignore
+/.gitattributes
+/test.py
 
 # End of https://www.gitignore.io/api/git,visualstudiocode
