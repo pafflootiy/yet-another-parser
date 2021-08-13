@@ -5,7 +5,7 @@ import csv
 
 from _includes.chekpage import chek_for_products
 from _includes.rename import rename_file
-from _includes.prod_page_parse import save_product, products_page_parse
+from _includes.prod_page_parse import save_product
 
 session = HTMLSession()
 site_link = 'https://videoglaz.ru'
